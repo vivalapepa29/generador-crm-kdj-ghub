@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busqueda CRM - HMA - KDJ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" />
+  </head>
+
+  <body class="bg-light-gray p-3">
+    <!-- Menú de navegación -->
+    <div id="menu-container"></div>
+
+    <!-- Tabla de datos -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Chapa Pegaso LF</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">TIPO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 16 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PEGASO LF
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PEGASO LF
+                    <strong style="color: #6c2cf5">4000X1000X1</strong> mm
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PEGASO LF 4000X1000X1 mm LF"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 16 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PEGASO LF
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PEGASO LF
+                    <strong style="color: #6c2cf5">6000X500X1</strong> mm
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PEGASO LF 6000X500X1 mm LF"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- Fila 16 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PEGASO LF
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PEGASO LF
+                    <strong style="color: #6c2cf5">6000X1000X1</strong> mm
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PEGASO LF 6000X1000X1 mm LF"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <!-- Tabla de datos -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Chapa Pegaso GV</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">TIPO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 17 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PEGASO GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PEGASO GV
+                    <strong style="color: #6c2cf5">6000X500X0,9</strong> mm
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PEGASO GV 6000X500X0,9 mm GV"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <script>
+      fetch("/menu/menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("menu-container").innerHTML = data;
+        });
+      // Inicializar Clipboard.js
+      var clipboard = new ClipboardJS(".copy-btn", {
+        text: function (trigger) {
+          return trigger.getAttribute("data-clipboard-text");
+        },
+      });
+      // Inicializar Clipboard.js
+      var clipboard = new ClipboardJS(".copy-btn", {
+        text: function (trigger) {
+          return trigger.getAttribute("data-clipboard-text");
+        },
+      });
+
+      // Mostrar notificación de copia
+      clipboard.on("success", function (e) {
+        var notification = document.getElementById("copy-notification");
+        notification.style.display = "block";
+        setTimeout(function () {
+          notification.style.display = "none";
+        }, 2000); // Ocultar después de 2 segundos
+        e.clearSelection();
+      });
+    </script>
+  </body>
+</html>

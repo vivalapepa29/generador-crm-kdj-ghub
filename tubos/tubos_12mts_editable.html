@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busqueda CRM - HMA - KDJ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+  <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" /></head>
+
+<body class="bg-light p-3">
+
+  <!-- Menú de navegación -->
+  <div id="menu-container"></div>
+
+<!-- tabla 12m editable -->
+  <div class="container w-100 mx-auto" style="max-width: 700px;">
+    <h1 class="mb-4 pt-5 text-center">Tubos de 12mts</h1>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">REDONDO</th>
+            <th scope="col">CUADRADO</th>
+            <th scope="col">RECTANGULAR</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">NG</td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">50x2</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO REDONDO NG 50x2 mm a 12 m ST . S235">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x60x3</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO CUAD. NG 60x60x3 mm a 12 m ST . S235">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x2</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. NG 60x40x2 mm a 12 m ST . S235">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">GV</td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">50x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO REDONDO GV 50x1,5 mm a 12 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">50x50x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO CUAD. GV 50x50x1,5 mm a 12 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x2</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. GV 60x40x2 mm a 12 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">DC</td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">14x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO REDONDO DC 14x1,5 mm a 12 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">50x50x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO CUAD. DC 50x50x1,5 mm a 12 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. DC 60x40x1,5 mm a 12 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+  </div>
+
+<!-- Tabla de tubos de 12m sin calidades editable -->
+<div class="container w-100 mx-auto" style="max-width: 700px;">
+  <h1 class="mb-4 pt-5 text-center">Tubos de 12mts sin calidades</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">REDONDO</th>
+          <th scope="col">CUADRADO</th>
+          <th scope="col">RECTANGULAR</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">NG</td>
+          <td>
+            <div class="copy-container">
+              <span contenteditable="true" class="editable" style="color:#6c2cf5">50x2</span>
+              <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO REDONDO NG 50x2 mm a 12 m ST .">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <div class="copy-container">
+              <span contenteditable="true" class="editable" style="color:#6c2cf5">60x60x3</span>
+              <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO CUAD. NG 60x60x3 mm a 12 m ST .">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <div class="copy-container">
+              <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x2</span>
+              <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. NG 60x40x2 mm a 12 m ST .">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+
+       
+        
+      </tbody>
+    </table>
+</div>
+
+
+    <!-- Notificación de copia -->
+    <div id="copy-notification" class="alert alert-info copied" role="alert">
+      ¡Elemento copiado!
+    </div>
+
+  <script>
+    fetch('/menu/menu.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('menu-container').innerHTML = data;
+          });
+    // Inicializar Clipboard.js para los botones de copiar
+    var clipboard = new ClipboardJS('.copy-btn', {
+      text: function(trigger) {
+        return trigger.getAttribute('data-clipboard-text');
+      }
+    });
+
+    // Mostrar notificación de copia
+    clipboard.on('success', function(e) {
+      var notification = document.getElementById('copy-notification');
+      notification.style.display = 'block';
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 2000); // Ocultar después de 2 segundos
+      e.clearSelection();
+    });
+
+    // Selección automática de texto al hacer clic en contenido editable
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('focus', function() {
+        var range = document.createRange();
+        var selection = window.getSelection();
+        range.selectNodeContents(this);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      });
+    });
+
+    // Actualización dinámica del texto editable
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('input', function() {
+        // Obtener el nuevo valor del texto editable
+        var newText = this.innerText.trim();
+        
+        // Buscar el botón correspondiente en el mismo contenedor
+        var parentButton = this.closest('.copy-container').querySelector('.copy-btn');
+
+        // Obtener el texto del botón antes de modificarlo
+        var originalText = parentButton.getAttribute('data-clipboard-text');
+
+        // Identificar si es redondo, cuadrado o rectangular y el tipo (NG o GV) para reemplazar en el texto de portapapeles
+        var parts = originalText.split(' ');
+        var descriptionPart = parts[1]; // REDONDO, CUAD., RECT.
+        var typePart = parts[2]; // NG o GV
+        var updatedText = `TUBO ${descriptionPart} ${typePart} ${newText} mm a 12 m ${originalText.split(' a 12 m ')[1]}`;
+
+        // Actualizar el valor del botón de copiar con el nuevo texto
+        parentButton.setAttribute('data-clipboard-text', updatedText);
+      });
+    });
+
+    // Prevenir el salto de línea al presionar Enter y confirmar edición
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault(); // Prevenir salto de línea
+          this.blur(); // Confirma la edición al perder el foco
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

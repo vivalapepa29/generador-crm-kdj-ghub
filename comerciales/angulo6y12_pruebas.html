@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Búsqueda CRM - HMA - KDJ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" />
+  </head>
+
+  <body class="bg-light-gray p-3">
+    <!-- Menú de navegación -->
+    <div id="menu-container"></div>
+
+    <!-- Tabla de Ángulos a 6mts -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Ángulos a 6mts</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- Encabezados -->
+          <thead>
+            <tr>
+              <th scope="col">ACABADO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila 1 ST -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                ST
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span>
+                    ANGULO
+                    <span
+                      contenteditable="true"
+                      class="editable"
+                      style="color: #6c2cf5"
+                      >40x4</span
+                    >
+                    a 6 m
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="ANGULO 40x4 a 6 m  ST . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila nueva añadida ZC -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                ZC
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span>
+                    ANGULO
+                    <span
+                      contenteditable="true"
+                      class="editable"
+                      style="color: #6c2cf5"
+                      >40x4</span
+                    >
+                    a 6 m
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="ANGULO 40x4 a 6 m  ZC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila 2 GC -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                GC
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span>
+                    ANGULO
+                    <span
+                      contenteditable="true"
+                      class="editable"
+                      style="color: #6c2cf5"
+                      >40x4</span
+                    >
+                    a 6 m
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="ANGULO 40x4 a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tabla de Ángulos a 12mts -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Ángulos a 12mts</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- Encabezados -->
+          <thead>
+            <tr>
+              <th scope="col">ACABADO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila 1 -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                ST
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span>
+                    ANGULO
+                    <span
+                      contenteditable="true"
+                      class="editable"
+                      style="color: #6c2cf5"
+                      >40x4</span
+                    >
+                    a 12 m
+                  </span>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="ANGULO 40x4 a 12 m  ST . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notificación de copia -->
+    <div id="copy-notification" class="alert alert-info copied" role="alert">
+      ¡Elemento copiado!
+    </div>
+
+    <script>
+      fetch("/menu/menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("menu-container").innerHTML = data;
+        });
+
+      // Inicializar Clipboard.js
+      var clipboard = new ClipboardJS(".copy-btn", {
+        text: function (trigger) {
+          return trigger.getAttribute("data-clipboard-text");
+        },
+      });
+
+      // Mostrar notificación de copia
+      clipboard.on("success", function (e) {
+        var notification = document.getElementById("copy-notification");
+        notification.style.display = "block";
+        setTimeout(function () {
+          notification.style.display = "none";
+        }, 2000);
+        e.clearSelection();
+      });
+
+      // Actualización dinámica del texto editable para ambas tablas
+      document
+        .querySelectorAll("[contenteditable]")
+        .forEach(function (element) {
+          element.addEventListener("input", function () {
+            var newText = this.innerText.trim();
+            var parentButton =
+              this.closest(".copy-container").querySelector(".copy-btn");
+            var originalText = parentButton.getAttribute("data-clipboard-text");
+
+            // Extraer el acabado (ST, GC, ZC) del TD correspondiente
+            var acabado = this.closest("tr")
+              .querySelector("td")
+              .innerText.trim();
+
+            // Obtener las partes necesarias del texto
+            var parts = originalText.split(" ");
+            var updatedText = `ANGULO ${newText} a ${
+              parts[3]
+            } m  ${acabado} . ${parts[parts.length - 1]}`;
+
+            // Actualizar el valor del botón de copiar con el nuevo texto
+            parentButton.setAttribute("data-clipboard-text", updatedText);
+          });
+
+          // Seleccionar todo el contenido al hacer clic en el campo editable
+          element.addEventListener("focus", function () {
+            var range = document.createRange();
+            range.selectNodeContents(this);
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+          });
+        });
+
+      // Prevenir el salto de línea al presionar Enter
+      document
+        .querySelectorAll("[contenteditable]")
+        .forEach(function (element) {
+          element.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              this.blur(); // Confirma la edición al perder el foco
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
