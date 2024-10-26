@@ -24,6 +24,39 @@
     <!-- Menú de navegación -->
     <div id="menu-container"></div>
 
+    
+
+<!-- Inputs para precio, descuento y resultado -->
+<div class="row justify-content-center mt-4">
+  <div class="col-3 col-md-3 mb-3">
+    <input type="number" class="form-control" id="precio" placeholder="Precio" oninput="calcularResultado()" />
+  </div>
+  <div class="col-3 col-md-3 mb-3">
+    <input type="number" class="form-control" id="descuento" placeholder="Dto." oninput="calcularResultado()" />
+  </div>
+  <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+    <input type="text" class="form-control" id="resultado" placeholder="Resultado" readonly />
+    <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">Reset</button>
+  </div>
+</div>
+
+<!-- JavaScript para calcular el resultado y limpiar inputs -->
+<script>
+function calcularResultado() {
+  const precio = parseFloat(document.getElementById("precio").value) || 0;
+  const descuento = parseFloat(document.getElementById("descuento").value) || 0;
+  const resultado = precio - (precio * (descuento / 100));
+  document.getElementById("resultado").value = resultado.toFixed(2);
+}
+
+function resetInputs() {
+  document.getElementById("precio").value = '';
+  document.getElementById("descuento").value = '';
+  document.getElementById("resultado").value = '';
+  document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+}
+</script>
+
     <!-- Tabla perfil U -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
       <h1 class="mb-4 pt-5 text-center">Perfil U</h1>
