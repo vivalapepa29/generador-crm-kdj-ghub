@@ -24,42 +24,61 @@
     <!-- Menú de navegación -->
     <div id="menu-container"></div>
 
-    
+    <!-- Inputs para precio, descuento y resultado -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          placeholder="Precio"
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="descuento"
+          placeholder="Dto."
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+        <input
+          type="text"
+          class="form-control"
+          id="resultado"
+          placeholder="Resultado"
+          readonly
+        />
+        <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">
+          Reset
+        </button>
+      </div>
+    </div>
 
-<!-- Inputs para precio, descuento y resultado -->
-<div class="row justify-content-center mt-4">
-  <div class="col-3 col-md-3 mb-3">
-    <input type="number" class="form-control" id="precio" placeholder="Precio" oninput="calcularResultado()" />
-  </div>
-  <div class="col-3 col-md-3 mb-3">
-    <input type="number" class="form-control" id="descuento" placeholder="Dto." oninput="calcularResultado()" />
-  </div>
-  <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
-    <input type="text" class="form-control" id="resultado" placeholder="Resultado" readonly />
-    <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">Reset</button>
-  </div>
-</div>
+    <!-- JavaScript para calcular el resultado y limpiar inputs -->
+    <script>
+      function calcularResultado() {
+        const precio = parseFloat(document.getElementById("precio").value) || 0;
+        const descuento =
+          parseFloat(document.getElementById("descuento").value) || 0;
+        const resultado = precio - precio * (descuento / 100);
+        document.getElementById("resultado").value = resultado.toFixed(2);
+      }
 
-<!-- JavaScript para calcular el resultado y limpiar inputs -->
-<script>
-function calcularResultado() {
-  const precio = parseFloat(document.getElementById("precio").value) || 0;
-  const descuento = parseFloat(document.getElementById("descuento").value) || 0;
-  const resultado = precio - (precio * (descuento / 100));
-  document.getElementById("resultado").value = resultado.toFixed(2);
-}
+      function resetInputs() {
+        document.getElementById("precio").value = "";
+        document.getElementById("descuento").value = "";
+        document.getElementById("resultado").value = "";
+        document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+      }
+    </script>
 
-function resetInputs() {
-  document.getElementById("precio").value = '';
-  document.getElementById("descuento").value = '';
-  document.getElementById("resultado").value = '';
-  document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
-}
-</script>
-
-    <!-- Tabla de datos -->
+    <!-- Chapas Perf. ⚫ DC -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
-      <h1 class="mb-4 pt-5 text-center">Chapas Perforadas Redondas</h1>
+      <h1 class="mb-4 pt-5 text-center">Chapas Perf. ⚫ DC</h1>
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <!-- ENCABEZADOS -->
@@ -71,7 +90,6 @@ function resetInputs() {
           </thead>
           <tbody>
             <!-- Fila de datos -->
-
             <tr>
               <!-- Fila 18 -->
               <td
@@ -100,6 +118,151 @@ function resetInputs() {
                 </div>
               </td>
             </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R5 T7</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 R5 T7 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R6 T9</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 R6 T9 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R8 T12</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 R8 T12 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R10 T14</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 R10 T14 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R10 T15</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 R10 T15 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
 
             <!-- Más filas -->
           </tbody>
@@ -111,9 +274,9 @@ function resetInputs() {
       </div>
     </div>
 
-    <!-- Tabla de datos -->
+    <!-- Chapas Perf. ⬛ DC -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
-      <h1 class="mb-4 pt-5 text-center">Chapas Perforadas Cuadradas</h1>
+      <h1 class="mb-4 pt-5 text-center">Chapas Perf. ⬛ DC</h1>
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <!-- ENCABEZADOS -->
@@ -154,7 +317,205 @@ function resetInputs() {
                 </div>
               </td>
             </tr>
+            <!-- Fila de datos -->
 
+            <tr>
+              <!-- Fila 19 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C15 U20</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 C15 U20 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 19 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C20 U40</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 C20 U40 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 19 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C30 U60</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 C30 U60 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+
+            <tr>
+              <!-- Fila 19 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS DC
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. DC
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C40 U80</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. DC 2000X1000X1,5 C40 U80 mm DC"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <!-- Chapas Perf. ⚫ DC -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Chapas Perf. ⚫ GV</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">TIPO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 18 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. REDONDOS GV
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">R3 T5</span> mm</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 R3 T5 mm   DX51"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <!-- Chapas Perf. ⬛ GV -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">Chapas Perf. ⬛ GV</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">TIPO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
             <tr>
               <!-- Fila 19.1 -->
               <td
@@ -178,6 +539,161 @@ function resetInputs() {
                     <button
                       class="btn btn-outline-primary btn-sm copy-btn"
                       data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C10 U20 mm   DX51"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 19.1 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C15 U30</span> mm</span
+                  >
+                  <span>
+                    <button
+                      class="btn btn-outline-primary btn-sm copy-btn"
+                      data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C15 U30 mm   DX51"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 19.1 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C20 U40</span> mm</span
+                  >
+                  <span>
+                    <button
+                      class="btn btn-outline-primary btn-sm copy-btn"
+                      data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C20 U40 mm   DX51"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 19.1 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C30 U60</span> mm</span
+                  >
+                  <span>
+                    <button
+                      class="btn btn-outline-primary btn-sm copy-btn"
+                      data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C30 U60 mm   DX51"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 19.1 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C40 U80</span> mm</span
+                  >
+                  <span>
+                    <button
+                      class="btn btn-outline-primary btn-sm copy-btn"
+                      data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C40 U80 mm   DX51"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila de datos -->
+            <tr>
+              <!-- Fila 19.1 -->
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                PERF. CUADRADOS GALVA
+              </td>
+
+              <td>
+                <div class="copy-container">
+                  <span
+                    >CHAPA PERF. GV
+                    <strong style="color: #6c2cf5">2000X1000X1,5</strong>
+                    <span style="color: #6c2cf5">C50 U100</span> mm</span
+                  >
+                  <span>
+                    <button
+                      class="btn btn-outline-primary btn-sm copy-btn"
+                      data-clipboard-text="CHAPA PERF. GV 2000X1000X1,5 C50 U100 mm GV  DX51"
                     >
                       <i class="bi bi-clipboard"></i>
                     </button>
