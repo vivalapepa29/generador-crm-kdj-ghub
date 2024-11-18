@@ -67,3 +67,19 @@ thead th {
 .bg-light-gray {
   background-color: #f5f5f5; /* Un tono claro de gris */
 }
+
+.btn-group-wrap {
+  flex-wrap: wrap !important;
+  gap: 2px;
+}
+
+.btn-group-wrap .btn {
+  border-radius: 0.25rem !important;
+}
+
+@media (max-width: 768px) {
+  .btn-group-wrap .btn {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
