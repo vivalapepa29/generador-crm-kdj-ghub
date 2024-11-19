@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busqueda CRM - HMA - KDJ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" />
+
+    <!-- En el head, después de los otros scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/menu/menu.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("menu-container").innerHTML = data;
+          });
+      });
+    </script>
+  </head>
+
+  <body class="bg-light-gray p-3">
+    <!-- Menú de navegación -->
+    <div id="menu-container"></div>
+
+    <!-- Inputs para precio, descuento y resultado -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          placeholder="Precio"
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="descuento"
+          placeholder="Dto."
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+        <input
+          type="text"
+          class="form-control"
+          id="resultado"
+          placeholder="Resultado"
+          readonly
+        />
+        <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript para calcular el resultado y limpiar inputs -->
+    <script>
+      function calcularResultado() {
+        const precio = parseFloat(document.getElementById("precio").value) || 0;
+        const descuento =
+          parseFloat(document.getElementById("descuento").value) || 0;
+        const resultado = precio - precio * (descuento / 100);
+        document.getElementById("resultado").value = resultado.toFixed(2);
+      }
+
+      function resetInputs() {
+        document.getElementById("precio").value = "";
+        document.getElementById("descuento").value = "";
+        document.getElementById("resultado").value = "";
+        document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+      }
+    </script>
+
+    <!-- PDS DECAPADO -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-4 text-center">Pletinas GC</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">MEDIDA</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas ordenadas por espesor -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                12x3
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">12x3</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 12x3 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Espesor 4mm -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                20x4
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">20x4</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 20x4 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                25x4
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">25x4</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 25x4 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                30x4
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">30x4</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 30x4 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                40x4
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">40x4</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 40x4 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Espesor 5mm -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                25x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">25x5</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 25x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                30x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">30x5</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 30x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                40x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">40x5</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 40x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                50x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">50x5</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 50x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                60x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">60x5</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 60x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                100x5
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">100x5</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 100x5 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Espesor 6mm -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                30x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">30x6</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 30x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                40x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">40x6</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 40x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                50x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">50x6</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 50x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                80x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">80x6</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 80x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                100x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">100x6</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 100x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                120x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">120x6</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 120x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                150x6
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">150x6</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 150x6 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Espesor 8mm -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                40x8
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">40x8</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 40x8 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                50x8
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">50x8</strong> mm a 6
+                    m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 50x8 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                100x8
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">100x8</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 100x8 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                200x8
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">200x8</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 200x8 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Espesor 10mm -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                40x10
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">40x10</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 40x10 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                50x10
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">50x10</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 50x10 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                100x10
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >PLETINA <strong style="color: #6c2cf5">100x10</strong> mm a
+                    6 m GC . S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLETINA 100x10 mm a 6 m  GC . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inicializar clipboard para cada botón individualmente
+        document.querySelectorAll(".copy-btn").forEach(function (btn) {
+          var clipboard = new ClipboardJS(btn);
+
+          clipboard.on("success", function (e) {
+            // Opcional: Feedback visual al usuario
+            const originalText = e.trigger.innerHTML;
+            e.trigger.innerHTML = '<i class="bi bi-check"></i>';
+            setTimeout(function () {
+              e.trigger.innerHTML = originalText;
+            }, 2000);
+            e.clearSelection();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
