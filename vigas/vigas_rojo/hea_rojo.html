@@ -24,38 +24,57 @@
     <!-- Menú de navegación -->
     <div id="menu-container"></div>
 
-    
+    <!-- Inputs para precio, descuento y resultado -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          placeholder="Precio"
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="descuento"
+          placeholder="Dto."
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+        <input
+          type="text"
+          class="form-control"
+          id="resultado"
+          placeholder="Resultado"
+          readonly
+        />
+        <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">
+          Reset
+        </button>
+      </div>
+    </div>
 
-<!-- Inputs para precio, descuento y resultado -->
-<div class="row justify-content-center mt-4">
-  <div class="col-3 col-md-3 mb-3">
-    <input type="number" class="form-control" id="precio" placeholder="Precio" oninput="calcularResultado()" />
-  </div>
-  <div class="col-3 col-md-3 mb-3">
-    <input type="number" class="form-control" id="descuento" placeholder="Dto." oninput="calcularResultado()" />
-  </div>
-  <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
-    <input type="text" class="form-control" id="resultado" placeholder="Resultado" readonly />
-    <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">Reset</button>
-  </div>
-</div>
+    <!-- JavaScript para calcular el resultado y limpiar inputs -->
+    <script>
+      function calcularResultado() {
+        const precio = parseFloat(document.getElementById("precio").value) || 0;
+        const descuento =
+          parseFloat(document.getElementById("descuento").value) || 0;
+        const resultado = precio - precio * (descuento / 100);
+        document.getElementById("resultado").value = resultado.toFixed(2);
+      }
 
-<!-- JavaScript para calcular el resultado y limpiar inputs -->
-<script>
-function calcularResultado() {
-  const precio = parseFloat(document.getElementById("precio").value) || 0;
-  const descuento = parseFloat(document.getElementById("descuento").value) || 0;
-  const resultado = precio - (precio * (descuento / 100));
-  document.getElementById("resultado").value = resultado.toFixed(2);
-}
-
-function resetInputs() {
-  document.getElementById("precio").value = '';
-  document.getElementById("descuento").value = '';
-  document.getElementById("resultado").value = '';
-  document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
-}
-</script>
+      function resetInputs() {
+        document.getElementById("precio").value = "";
+        document.getElementById("descuento").value = "";
+        document.getElementById("resultado").value = "";
+        document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+      }
+    </script>
 
     <!-- Tabla de datos -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
@@ -88,14 +107,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 6,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 6,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 6,1 m G+I ROJO S275"
@@ -121,14 +163,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 10,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 10,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 10,1 m G+I ROJO S275"
@@ -154,14 +219,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 12,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 12,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 12,1 m G+I ROJO S275"
@@ -187,14 +275,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 14,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 14,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 14,1 m G+I ROJO S275"
@@ -220,14 +331,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 15,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 15,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 15,1 m G+I ROJO S275"
@@ -253,14 +387,37 @@ function resetInputs() {
                 <div class="copy-container">
                   <span
                     >HEA
-                    <span
-                      contenteditable="true"
-                      class="editable"
-                      style="color: #6c2cf5"
-                      >200</span
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
                     >
-                    a 16,1m S275 G+I ROJO
-                  </span>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                      <option value="650">650</option>
+                      <option value="700">700</option>
+                      <option value="800">800</option>
+                      <option value="900">900</option>
+                      <option value="1000">1000</option>
+                    </select>
+                    a 16,1m S275 G+I ROJO</span
+                  >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
                     data-clipboard-text="VIGA HEA 200 mm a 16,1 m G+I ROJO S275"
@@ -444,6 +601,32 @@ function resetInputs() {
             }
           });
         });
+
+      // Agregar esta función al script existente
+      function updateClipboardText(selectElement) {
+        const selectedValue = selectElement.value;
+        const copyBtn = selectElement
+          .closest(".copy-container")
+          .querySelector(".copy-btn");
+        const largo = selectElement
+          .closest("tr")
+          .querySelector("td")
+          .innerText.trim();
+        const newText = `VIGA HEA ${selectedValue} mm a ${largo} m G+I ROJO S275`;
+        copyBtn.setAttribute("data-clipboard-text", newText);
+      }
     </script>
+
+    <style>
+      /* Estilo para hacer el select más compacto */
+      .form-select-sm {
+        padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        min-width: 80px;
+        height: calc(1.5em + 0.5rem + 2px);
+        color: #6c2cf5;
+        font-weight: bold;
+      }
+    </style>
   </body>
 </html>
