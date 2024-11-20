@@ -74,33 +74,63 @@
         document.getElementById("resultado").value = "";
         document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
       }
+
+      function updateClipboardText(selectElement) {
+        const selectedValue = selectElement.value;
+        const copyBtn = selectElement
+          .closest(".copy-container")
+          .querySelector(".copy-btn");
+        const largo = selectElement
+          .closest("tr")
+          .querySelector("td")
+          .innerText.trim();
+        const isRojo = document.getElementById("switchRojo").checked;
+
+        const newText = isRojo
+          ? `VIGA UPN ${selectedValue} mm a ${largo} m G+I ROJO S275`
+          : `VIGA UPN ${selectedValue} mm a ${largo} m ST . S275`;
+
+        copyBtn.setAttribute("data-clipboard-text", newText);
+      }
     </script>
 
-    <!-- Sección de botones de navegación - Vigas Rojo -->
-    <div class="container w-100 mx-auto pt-5" style="max-width: 700px">
+    <!-- Sección de botones de navegación -->
+    <div class="container w-100 mx-auto mt-5" style="max-width: 700px">
       <div class="d-flex justify-content-center flex-wrap gap-2">
-        <a href="/vigas/vigas_rojo/ipn_rojo.html" class="btn btn-outline-danger"
+        <a href="/vigas/switch_a_rojo/ipn.html" class="btn btn-outline-primary"
           >IPN</a
         >
-        <a href="/vigas/vigas_rojo/ipe_rojo.html" class="btn btn-outline-danger"
+        <a href="/vigas/switch_a_rojo/ipe.html" class="btn btn-outline-primary"
           >IPE</a
         >
-        <a href="/vigas/vigas_rojo/heb_rojo.html" class="btn btn-outline-danger"
-          >HEB</a
+        <a href="/vigas/switch_a_rojo/hea.html" class="btn btn-outline-primary"
+          >HEA</a
         >
-
-        <a href="/vigas/vigas_rojo/upn_rojo.html" class="btn btn-outline-danger"
-          >UPN</a
+        <a href="/vigas/switch_a_rojo/heb.html" class="btn btn-outline-primary"
+          >HEB</a
         >
       </div>
     </div>
 
     <!-- Tabla de datos -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
-      <h1 class="mb-4 pt-4 text-center">
-        VIGAS <strong style="color: #6c2cf5">HEA</strong> --
-        <strong style="color: #6c2cf5">G+I ROJO S275</strong>
-      </h1>
+      <div
+        class="mb-4 pt-4 text-center d-flex justify-content-center align-items-center gap-5"
+      >
+        <h1>VIGAS <strong style="color: #6c2cf5">UPN</strong></h1>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="switchRojo"
+          />
+          <label class="form-check-label" for="switchRojo">
+            <strong style="color: #dc3545">A Rojo</strong>
+          </label>
+        </div>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <!-- ENCABEZADOS -->
@@ -125,11 +155,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -144,22 +175,18 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 6,1m S275 G+I ROJO</span
+                    a 6,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 6,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 6,1 m ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -181,11 +208,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -200,22 +228,18 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 10,1m S275 G+I ROJO</span
+                    a 10,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 10,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 10,1 m ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -237,11 +261,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -256,22 +281,18 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 12,1m S275 G+I ROJO</span
+                    a 12,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 12,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 12,1 m ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -293,11 +314,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -312,22 +334,18 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 14,1m S275 G+I ROJO</span
+                    a 14,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 14,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 14,1 m ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -349,11 +367,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -368,22 +387,18 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 15,1m S275 G+I ROJO</span
+                    a 15,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 15,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 15,1 m ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -405,11 +420,12 @@
               <td>
                 <div class="copy-container">
                   <span
-                    >HEA
+                    >UPN
                     <select
                       class="form-select form-select-sm d-inline-block w-auto"
                       onchange="updateClipboardText(this)"
                     >
+                      <option value="80">80</option>
                       <option value="100">100</option>
                       <option value="120">120</option>
                       <option value="140">140</option>
@@ -424,22 +440,120 @@
                       <option value="320">320</option>
                       <option value="340">340</option>
                       <option value="360">360</option>
+                      <option value="380">380</option>
                       <option value="400">400</option>
                       <option value="450">450</option>
                       <option value="500">500</option>
                       <option value="550">550</option>
                       <option value="600">600</option>
-                      <option value="650">650</option>
-                      <option value="700">700</option>
-                      <option value="800">800</option>
-                      <option value="900">900</option>
-                      <option value="1000">1000</option>
                     </select>
-                    a 16,1m S275 G+I ROJO</span
+                    a 16,1m S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA HEA 200 mm a 16,1 m G+I ROJO S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 16,1 m ST . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Más filas similares -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 40 50 y 60 -->
+
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-5 text-center">
+        VIGAS UPN <strong style="color: #6c2cf5">40, 50, 60</strong>
+      </h1>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <th scope="col">LARGO</th>
+              <th scope="col">DESCRIPCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila 1 -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                6,1
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >UPN <strong style="color: #6c2cf5">40</strong> a 6,1m
+                    S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="VIGA UPN 40 mm a 6 m  ST . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila 1 -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                6,1
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >UPN <strong style="color: #6c2cf5">50</strong> a 6,1m
+                    S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="VIGA UPN 50 mm a 6 m  ST . S275"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Fila 1 -->
+            <tr>
+              <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                6,1
+              </td>
+              <td>
+                <div class="copy-container">
+                  <span
+                    >UPN <strong style="color: #6c2cf5">60</strong> a 6,1m
+                    S275</span
+                  >
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="VIGA UPN 60 mm a 6 m  ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -593,7 +707,7 @@
             // Extraer el largo de la viga y acabado (por ejemplo, ST) del texto
             var parentRow = this.closest("tr");
             var largo = parentRow.querySelector("td").innerText.trim();
-            var updatedText = `VIGA HEA ${newText} mm a ${largo} m G+I ROJO S275`;
+            var updatedText = `VIGA UPN ${newText} mm a ${largo} m ST . S275`;
 
             // Actualizar el valor del botón de copiar con el nuevo texto
             parentButton.setAttribute("data-clipboard-text", updatedText);
@@ -621,19 +735,35 @@
           });
         });
 
-      // Agregar esta función al script existente
-      function updateClipboardText(selectElement) {
-        const selectedValue = selectElement.value;
-        const copyBtn = selectElement
-          .closest(".copy-container")
-          .querySelector(".copy-btn");
-        const largo = selectElement
-          .closest("tr")
-          .querySelector("td")
-          .innerText.trim();
-        const newText = `VIGA HEA ${selectedValue} mm a ${largo} m G+I ROJO S275`;
-        copyBtn.setAttribute("data-clipboard-text", newText);
-      }
+      document
+        .getElementById("switchRojo")
+        .addEventListener("change", function () {
+          const isRojo = this.checked;
+          const rows = document.querySelectorAll("tbody tr");
+
+          rows.forEach((row) => {
+            const span = row.querySelector("span");
+            const copyBtn = row.querySelector(".copy-btn");
+            const largo = row.querySelector("td").innerText.trim();
+            const selectedValue = row.querySelector("select").value;
+
+            if (isRojo) {
+              // Cambiar texto visible
+              span.innerHTML = span.innerHTML.replace("S275", "G+I ROJO S275");
+
+              // Actualizar texto del portapapeles
+              const newClipboardText = `VIGA UPN ${selectedValue} mm a ${largo} m G+I ROJO S275`;
+              copyBtn.setAttribute("data-clipboard-text", newClipboardText);
+            } else {
+              // Revertir texto visible
+              span.innerHTML = span.innerHTML.replace("G+I ROJO S275", "S275");
+
+              // Revertir texto del portapapeles
+              const newClipboardText = `VIGA UPN ${selectedValue} mm a ${largo} m ST . S275`;
+              copyBtn.setAttribute("data-clipboard-text", newClipboardText);
+            }
+          });
+        });
     </script>
 
     <style>
@@ -645,6 +775,24 @@
         height: calc(1.5em + 0.5rem + 2px);
         color: #6c2cf5;
         font-weight: bold;
+      }
+
+      /* Estilos para el switch */
+      .form-check-input {
+        width: 3em;
+        height: 1.5em;
+        cursor: pointer;
+        margin-right: 0.8em;
+      }
+
+      .form-check-input:checked {
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+
+      .form-check-label {
+        cursor: pointer;
+        font-size: 1.1em;
       }
     </style>
   </body>
