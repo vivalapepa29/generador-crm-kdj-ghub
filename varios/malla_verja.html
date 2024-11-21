@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/estilos/styles.css" />
   </head>
 
-  <body class="bg-light-gray p-3">
+  <body class="bg-light-gray p-3" style="margin-bottom: 100px">
     <!-- Menú de navegación -->
     <div id="menu-container"></div>
 
@@ -410,6 +410,23 @@
         }, 2000); // Ocultar después de 2 segundos
         e.clearSelection();
       });
+    </script>
+  <!-- Footer container -->
+    <div id="footer-container"></div>
+
+    <!-- Script para el footer -->
+    <script>
+      fetch("/footer/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = data;
+          const footer = tempDiv.querySelector("footer");
+          document.getElementById("footer-container").appendChild(footer);
+        })
+        .catch((error) => {
+          console.error("Error cargando el footer:", error);
+        });
     </script>
   </body>
 </html>
