@@ -253,7 +253,14 @@ function resetInputs() {
     document.querySelectorAll('[contenteditable]').forEach(function(element) {
       element.addEventListener('input', function() {
         // Obtener el nuevo valor del texto editable
-        var newText = this.innerText.trim();
+        var newText = this.innerText.trim()
+          .toLowerCase()
+          .replace(/\./g, ',')    // Reemplazar puntos por comas
+          .replace(/\*/g, 'x')    // Reemplazar asteriscos por x
+          .replace(/X/g, 'x');    // Reemplazar X mayúscula por x
+        
+        // Actualizar el texto visible con la transformación
+        this.innerText = newText;
         
         // Buscar el botón correspondiente en el mismo contenedor
         var parentButton = this.closest('.copy-container').querySelector('.copy-btn');
@@ -266,7 +273,7 @@ function resetInputs() {
         var descriptionPart = parts[1]; // REDONDO, CUAD., RECT.
         var typePart = parts[2]; // NG o GV
         
-        // Si es cuadrado, convertir 60x3 a 60x60x3
+        // Si es cuadrado, convertir 60x3 o 60X3 a 60x60x3
         if (descriptionPart === 'CUAD.') {
           var dimensions = newText.split('x');
           if (dimensions.length === 2) {
@@ -274,10 +281,21 @@ function resetInputs() {
           }
         }
         
+        // Convertir el texto final a mayúsculas para mantener el formato
+        newText = newText.toUpperCase();
+        
         var updatedText = `TUBO ${descriptionPart} ${typePart} ${newText} mm a 6 m ${originalText.split(' a 6 m ')[1]}`;
         
         // Actualizar el valor del botón de copiar con el nuevo texto
         parentButton.setAttribute('data-clipboard-text', updatedText);
+        
+        // Colocar el cursor al final del texto
+        var range = document.createRange();
+        var sel = window.getSelection();
+        range.selectNodeContents(this);
+        range.collapse(false);
+        sel.removeAllRanges();
+        sel.addRange(range);
       });
     });
 
