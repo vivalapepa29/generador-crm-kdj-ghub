@@ -2148,5 +2148,25 @@
           console.error("Error cargando el footer:", error);
         });
     </script>
+
+    <!-- Script para inicializar Clipboard.js -->
+    <script>
+      // Inicializar Clipboard.js
+      var clipboard = new ClipboardJS(".copy-btn", {
+        text: function (trigger) {
+          return trigger.getAttribute("data-clipboard-text");
+        },
+      });
+
+      // Mostrar notificación de copia
+      clipboard.on("success", function (e) {
+        var notification = document.getElementById("copy-notification");
+        notification.style.display = "block";
+        setTimeout(function () {
+          notification.style.display = "none";
+        }, 2000); // Ocultar después de 2 segundos
+        e.clearSelection();
+      });
+    </script>
   </body>
 </html>
