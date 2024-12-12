@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busqueda CRM - HMA - KDJ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" />
+  </head>
+
+  <body class="bg-light-gray p-3" style="margin-bottom: 100px">
+    <!-- Menú de navegación -->
+    <div id="menu-container"></div>
+
+    <!-- Inputs para precio, descuento y resultado -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          placeholder="Precio"
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-3 col-md-3 mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="descuento"
+          placeholder="Dto."
+          oninput="calcularResultado()"
+        />
+      </div>
+      <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+        <input
+          type="text"
+          class="form-control"
+          id="resultado"
+          placeholder="Resultado"
+          readonly
+        />
+        <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript para calcular el resultado y limpiar inputs -->
+    <script>
+      function calcularResultado() {
+        const precio = parseFloat(document.getElementById("precio").value) || 0;
+        const descuento =
+          parseFloat(document.getElementById("descuento").value) || 0;
+        const resultado = precio - precio * (descuento / 100);
+        document.getElementById("resultado").value = resultado.toFixed(2);
+      }
+
+      function resetInputs() {
+        document.getElementById("precio").value = "";
+        document.getElementById("descuento").value = "";
+        document.getElementById("resultado").value = "";
+        document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+      }
+    </script>
+
+    <h3 class="mb-4 pt-4 pb-4 text-center">
+      <strong style="color: #6c2cf5">Nota:</strong> Algunas presillas pueden
+      aparecer en acabado S275 o NC
+    </h3>
+
+    <!-- Tabla PLACAS DE ANCLAJE -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-4 text-center">Placas de anclaje</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <!-- <th scope="col"></th> -->
+              <th scope="col">PLACAS ANCLAJE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
+
+            <!-- Fila 1 -->
+            <tr>
+              <!-- <td
+                  style="
+                    background-color: #6e2bf53a;
+                    color: black;
+                    font-weight: bold;
+                  "
+                >
+                  ST 275
+                </td> -->
+              <td>
+                <div class="copy-container">
+                  <select
+                    id="placas-select"
+                    class="form-select"
+                    onchange="updateClipboardText(this, 'PLACAS ANCLAJE')"
+                  >
+                    <option value="200X200X12">200X200X12</option>
+                    <option value="200X200X20">200X200X20</option>
+                    <option value="225X1400X15">225X1400X15</option>
+                    <option value="240X330X10">240X330X10</option>
+                    <option value="250X250X10">250X250X10</option>
+                    <option value="250X250X12">250X250X12</option>
+                    <option value="250X250X15" selected>250X250X15</option>
+                    <option value="250X250X20">250X250X20</option>
+                    <option value="300X150X10">300X150X10</option>
+                    <option value="300X160X10">300X160X10</option>
+                    <option value="300X250X12">300X250X12</option>
+                    <option value="300X280X18">300X280X18</option>
+                    <option value="300X300X5">300X300X5</option>
+                    <option value="300X300X8">300X300X8</option>
+                    <option value="300X300X10">300X300X10</option>
+                    <option value="300X300X12">300X300X12</option>
+                    <option value="300X300X15">300X300X15</option>
+                    <option value="300X300X18">300X300X18</option>
+                    <option value="300X300X20">300X300X20</option>
+                    <option value="300X300X25">300X300X25</option>
+                    <option value="300X300X30">300X300X30</option>
+                    <option value="350X250X12">350X250X12</option>
+                    <option value="350X350X8">350X350X8</option>
+                    <option value="350X350X12">350X350X12</option>
+                    <option value="350X350X14">350X350X14</option>
+                    <option value="350X350X15">350X350X15</option>
+                    <option value="350X350X20">350X350X20</option>
+                    <option value="350X350X22">350X350X22</option>
+                    <option value="350X350X25">350X350X25</option>
+                    <option value="400X250X20">400X250X20</option>
+                    <option value="400X300X28">400X300X28</option>
+                    <option value="400X300X30">400X300X30</option>
+                    <option value="400X400X10">400X400X10</option>
+                    <option value="400X400X12">400X400X12</option>
+                    <option value="400X400X15">400X400X15</option>
+                    <option value="400X400X18">400X400X18</option>
+                    <option value="400X400X20">400X400X20</option>
+                    <option value="400X400X25">400X400X25</option>
+                    <option value="450X450X15">450X450X15</option>
+                    <option value="450X450X20">450X450X20</option>
+                    <option value="500X400X20">500X400X20</option>
+                    <option value="500X400X22">500X400X22</option>
+                    <option value="500X400X24">500X400X24</option>
+                    <option value="500X500X10">500X500X10</option>
+                    <option value="500X500X15">500X500X15</option>
+                    <option value="500X500X18">500X500X18</option>
+                    <option value="500X500X20">500X500X20</option>
+                    <option value="500X500X25">500X500X25</option>
+                    <option value="500X500X30">500X500X30</option>
+                    <option value="520X250X10">520X250X10</option>
+                    <option value="600X300X20">600X300X20</option>
+                    <option value="600X400X15">600X400X15</option>
+                    <option value="600X400X18">600X400X18</option>
+                    <option value="600X400X20">600X400X20</option>
+                    <option value="600X600X20">600X600X20</option>
+                    <option value="650X390X12">650X390X12</option>
+                    <option value="650X400X25">650X400X25</option>
+                    <option value="650X650X12">650X650X12</option>
+                    <option value="650X650X30">650X650X30</option>
+                    <option value="700X400X10">700X400X10</option>
+                  </select>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PLACAS ANCLAJE 250X250X15 mm ST"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <!-- Tabla presillas st 275 -->
+    <div class="container w-100 mx-auto" style="max-width: 700px">
+      <h1 class="mb-4 pt-4 text-center">Presillas</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <!-- ENCABEZADOS -->
+          <thead>
+            <tr>
+              <!-- <th scope="col"></th> -->
+              <th scope="col">PRESILLAS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de datos -->
+
+            <!-- Fila 1 -->
+            <tr>
+              <!-- <td
+                style="
+                  background-color: #6e2bf53a;
+                  color: black;
+                  font-weight: bold;
+                "
+              >
+                ST 275
+              </td> -->
+              <td>
+                <div class="copy-container">
+                  <select
+                    id="presillas-select"
+                    class="form-select"
+                    onchange="updateClipboardText(this, 'PRESILLAS')"
+                  >
+                    <option value="150X150X8">150X150X8</option>
+                    <option value="150X150X8">150X150X10</option>
+                    <option value="200X200X8">200X200X8</option>
+                    <option value="200X200X10">200X200X10</option>
+                  </select>
+                  <button
+                    class="btn btn-outline-primary btn-sm copy-btn"
+                    data-clipboard-text="PRESILLAS 150X150X8 mm ST"
+                  >
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Notificación de copia -->
+      <div id="copy-notification" class="alert alert-info copied" role="alert">
+        ¡Elemento copiado!
+      </div>
+    </div>
+
+    <script>
+      fetch("/menu/menu.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("menu-container").innerHTML = data;
+        });
+      // Inicializar Clipboard.js
+      var clipboard = new ClipboardJS(".copy-btn", {
+        text: function (trigger) {
+          return trigger.getAttribute("data-clipboard-text");
+        },
+      });
+      // ... existing code ...
+      function updateClipboardText(selectElement, tipo) {
+        const selectedValue = selectElement.value;
+        const button = selectElement
+          .closest(".copy-container")
+          .querySelector(".copy-btn");
+        button.setAttribute(
+          "data-clipboard-text",
+          `${tipo} ${selectedValue} mm ST`
+        );
+      }
+
+      //   // Mostrar notificación de copia
+      //   clipboard.on("success", function (e) {
+      //     var notification = document.getElementById("copy-notification");
+      //     notification.style.display = "block";
+      //     setTimeout(function () {
+      //       notification.style.display = "none";
+      //     }, 2000); // Ocultar después de 2 segundos
+      //     e.clearSelection();
+      //   });
+    </script>
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+    <!-- Script para el footer -->
+    <script>
+      fetch("/footer/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = data;
+          const footer = tempDiv.querySelector("footer");
+          document.getElementById("footer-container").appendChild(footer);
+        })
+        .catch((error) => {
+          console.error("Error cargando el footer:", error);
+        });
+    </script>
+  </body>
+</html>
