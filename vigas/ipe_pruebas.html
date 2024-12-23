@@ -77,9 +77,7 @@
 
       function updateClipboardText(selectElement) {
         const selectedValue = selectElement.value;
-        const copyBtn = selectElement
-          .closest(".copy-container")
-          .querySelector(".copy-btn");
+        const copyBtn = selectElement.closest(".copy-container").querySelector(".copy-btn");
         const row = selectElement.closest("tr");
         const tdLargo = row.querySelector("td");
 
@@ -88,7 +86,7 @@
         let largo;
 
         if (customInput) {
-          // Si es la fila con input, usar el valor formateado y no aplicar el switch rojo
+          // Para la última fila (con input), mantener mm
           const number = parseFloat(customInput.value);
           largo = number.toLocaleString("es-ES", {
             minimumFractionDigits: 2,
@@ -98,12 +96,12 @@
           const newText = `VIGA IPE ${selectedValue} mm a ${largo} mm ST . S275`;
           copyBtn.setAttribute("data-clipboard-text", newText);
         } else {
-          // Para las filas normales, usar el texto directamente y aplicar el switch
+          // Para las demás filas, usar m en lugar de mm
           largo = tdLargo.innerText.trim();
           const isRojo = document.getElementById("switchRojo").checked;
           const newText = isRojo
-            ? `VIGA IPE ${selectedValue} mm a ${largo} mm G+I ROJO S275`
-            : `VIGA IPE ${selectedValue} mm a ${largo} mm ST . S275`;
+            ? `VIGA IPE ${selectedValue} m a ${largo} m G+I ROJO S275`
+            : `VIGA IPE ${selectedValue} m a ${largo} m ST . S275`;
           copyBtn.setAttribute("data-clipboard-text", newText);
         }
       }
