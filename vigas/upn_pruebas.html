@@ -74,35 +74,112 @@
         document.getElementById("resultado").value = "";
         document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
       }
+
+      function updateClipboardText(selectElement) {
+        const selectedValue = selectElement.value;
+        const copyBtn = selectElement
+          .closest(".copy-container")
+          .querySelector(".copy-btn");
+        const row = selectElement.closest("tr");
+        const tdLargo = row.querySelector("td");
+
+        // Verificar si es la fila con input personalizado
+        const customInput = tdLargo.querySelector("input");
+        let largo;
+
+        if (customInput) {
+          // Si es la fila con input, usar el valor formateado y no aplicar el switch rojo
+          const number = parseFloat(customInput.value);
+          largo = number.toLocaleString("es-ES", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            useGrouping: true,
+          });
+          const newText = `VIGA UPN ${selectedValue} mm a ${largo} mm ST . S275`;
+          copyBtn.setAttribute("data-clipboard-text", newText);
+        } else {
+          // Para las filas normales, usar el texto directamente y aplicar el switch
+          largo = tdLargo.innerText.trim();
+          const isRojo = document.getElementById("switchRojo").checked;
+          const newText = isRojo
+            ? `VIGA UPN ${selectedValue} mm a ${largo} mm G+I ROJO S275`
+            : `VIGA UPN ${selectedValue} mm a ${largo} mm ST . S275`;
+          copyBtn.setAttribute("data-clipboard-text", newText);
+        }
+      }
+
+      function updateCustomLength(input) {
+        const row = input.closest("tr");
+        const customLengthSpan = row.querySelector(".custom-length");
+        const copyBtn = row.querySelector(".copy-btn");
+        const selectValue = row.querySelector("select").value;
+
+        // Convertir el input a número y formatearlo
+        const rawValue = input.value;
+        const number = parseFloat(rawValue);
+        const formattedLength = number.toLocaleString("es-ES", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+          useGrouping: true,
+        });
+
+        // Actualizar el span con el valor formateado
+        customLengthSpan.textContent = formattedLength;
+
+        // Para la fila personalizada, siempre usar el formato sin G+I ROJO
+        const newText = `VIGA UPN ${selectValue} mm a ${formattedLength} mm ST . S275`;
+        copyBtn.setAttribute("data-clipboard-text", newText);
+      }
+
+      // Agregar al final del script existente
+      // Formatear el valor inicial del input personalizado
+      document.addEventListener("DOMContentLoaded", function () {
+        const customInput = document.querySelector(
+          'input[type="number"].form-control-sm'
+        );
+        if (customInput) {
+          updateCustomLength(customInput);
+        }
+      });
     </script>
 
     <!-- Sección de botones de navegación -->
     <div class="container w-100 mx-auto mt-5" style="max-width: 700px">
       <div class="d-flex justify-content-center flex-wrap gap-2">
-        <a href="/vigas/ipn_pruebas.html" class="btn btn-outline-primary"
-          >IPN</a
-        >
         <a href="/vigas/ipe_pruebas.html" class="btn btn-outline-primary"
           >IPE</a
         >
-        <a href="/vigas/heb_pruebas.html" class="btn btn-outline-primary"
-          >HEB</a
+        <a href="/vigas/ipn_pruebas.html" class="btn btn-outline-primary"
+          >IPN</a
         >
         <a href="/vigas/hea_pruebas.html" class="btn btn-outline-primary"
           >HEA</a
+        >
+        <a href="/vigas/heb_pruebas.html" class="btn btn-outline-primary"
+          >HEB</a
         >
       </div>
     </div>
 
     <!-- Tabla de datos -->
     <div class="container w-100 mx-auto" style="max-width: 700px">
-      <h1 class="mb-4 pt-4 text-center">
-        VIGAS <strong style="color: #6c2cf5">UPN</strong>
-      </h1>
-      <h4 class="mb-4 pt-2 pb-4 text-center">
-        <strong style="color: #6c2cf5">Nota:</strong> Las de tamaño 40,50 y 60
-        tienen dos espacios entre la 'm' y 'ST' y pone a '6 m' en vez de '6,1 m'
-      </h4>
+      <div
+        class="mb-4 pt-4 text-center d-flex justify-content-center align-items-center gap-5"
+      >
+        <h1>VIGAS <strong style="color: #6c2cf5">UPN</strong></h1>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="switchRojo"
+          />
+          <label class="form-check-label" for="switchRojo">
+            <strong style="color: #dc3545">A Rojo</strong>
+          </label>
+        </div>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <!-- ENCABEZADOS -->
@@ -145,9 +222,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 6,1m S275</span
                   >
@@ -193,9 +275,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 10,1m S275</span
                   >
@@ -241,9 +328,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 12,1m S275</span
                   >
@@ -289,9 +381,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 14,1m S275</span
                   >
@@ -337,9 +434,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 15,1m S275</span
                   >
@@ -385,9 +487,14 @@
                       <option value="280">280</option>
                       <option value="300">300</option>
                       <option value="320">320</option>
-                      <option value="350">350</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
                       <option value="380">380</option>
                       <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
                     </select>
                     a 16,1m S275</span
                   >
@@ -401,30 +508,7 @@
               </td>
             </tr>
 
-            <!-- Más filas similares -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- 40 50 y 60 -->
-
-    <div class="container w-100 mx-auto" style="max-width: 700px">
-      <h1 class="mb-4 pt-5 text-center">
-        VIGAS UPN <strong style="color: #6c2cf5">40 50 Y 60</strong>
-      </h1>
-
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <!-- ENCABEZADOS -->
-          <thead>
-            <tr>
-              <th scope="col">LARGO</th>
-              <th scope="col">DESCRIPCIÓN</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Fila 1 -->
+            <!-- Fila 7 con input -->
             <tr>
               <td
                 style="
@@ -433,69 +517,54 @@
                   font-weight: bold;
                 "
               >
-                6,1
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  value="6050"
+                  step="0.1"
+                  style="
+                    width: 70px;
+                    background-color: #6e2bf53a;
+                    font-weight: bold;
+                  "
+                  oninput="updateCustomLength(this)"
+                />
               </td>
               <td>
                 <div class="copy-container">
                   <span
-                    >UPN <strong style="color: #6c2cf5">40</strong> a 6,1m
-                    S275</span
+                    >UPN
+                    <select
+                      class="form-select form-select-sm d-inline-block w-auto"
+                      onchange="updateClipboardText(this)"
+                    >
+                      <option value="80">80</option>
+                      <option value="100">100</option>
+                      <option value="120">120</option>
+                      <option value="140">140</option>
+                      <option value="160">160</option>
+                      <option value="180">180</option>
+                      <option value="200" selected>200</option>
+                      <option value="220">220</option>
+                      <option value="240">240</option>
+                      <option value="260">260</option>
+                      <option value="280">280</option>
+                      <option value="300">300</option>
+                      <option value="320">320</option>
+                      <option value="340">340</option>
+                      <option value="360">360</option>
+                      <option value="380">380</option>
+                      <option value="400">400</option>
+                      <option value="450">450</option>
+                      <option value="500">500</option>
+                      <option value="550">550</option>
+                      <option value="600">600</option>
+                    </select>
+                    a <span class="custom-length">6.050,00</span>mm S275</span
                   >
                   <button
                     class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA UPN 40 mm a 6 m  ST . S275"
-                  >
-                    <i class="bi bi-clipboard"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Fila 1 -->
-            <tr>
-              <td
-                style="
-                  background-color: #6e2bf53a;
-                  color: black;
-                  font-weight: bold;
-                "
-              >
-                6,1
-              </td>
-              <td>
-                <div class="copy-container">
-                  <span
-                    >UPN <strong style="color: #6c2cf5">50</strong> a 6,1m
-                    S275</span
-                  >
-                  <button
-                    class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA UPN 50 mm a 6 m  ST . S275"
-                  >
-                    <i class="bi bi-clipboard"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Fila 1 -->
-            <tr>
-              <td
-                style="
-                  background-color: #6e2bf53a;
-                  color: black;
-                  font-weight: bold;
-                "
-              >
-                6,1
-              </td>
-              <td>
-                <div class="copy-container">
-                  <span
-                    >UPN <strong style="color: #6c2cf5">60</strong> a 6,1m
-                    S275</span
-                  >
-                  <button
-                    class="btn btn-outline-primary btn-sm copy-btn"
-                    data-clipboard-text="VIGA UPN 60 mm a 6 m  ST . S275"
+                    data-clipboard-text="VIGA UPN 200 mm a 6.050,00 mm ST . S275"
                   >
                     <i class="bi bi-clipboard"></i>
                   </button>
@@ -677,18 +746,35 @@
           });
         });
 
-      function updateClipboardText(selectElement) {
-        const selectedValue = selectElement.value;
-        const copyBtn = selectElement
-          .closest(".copy-container")
-          .querySelector(".copy-btn");
-        const largo = selectElement
-          .closest("tr")
-          .querySelector("td")
-          .innerText.trim();
-        const newText = `VIGA UPN ${selectedValue} mm a ${largo} m ST . S275`;
-        copyBtn.setAttribute("data-clipboard-text", newText);
-      }
+      document
+        .getElementById("switchRojo")
+        .addEventListener("change", function () {
+          const isRojo = this.checked;
+          const rows = document.querySelectorAll("tbody tr");
+
+          rows.forEach((row) => {
+            const span = row.querySelector("span");
+            const copyBtn = row.querySelector(".copy-btn");
+            const largo = row.querySelector("td").innerText.trim();
+            const selectedValue = row.querySelector("select").value;
+
+            if (isRojo) {
+              // Cambiar texto visible
+              span.innerHTML = span.innerHTML.replace("S275", "G+I ROJO S275");
+
+              // Actualizar texto del portapapeles
+              const newClipboardText = `VIGA UPN ${selectedValue} mm a ${largo} m G+I ROJO S275`;
+              copyBtn.setAttribute("data-clipboard-text", newClipboardText);
+            } else {
+              // Revertir texto visible
+              span.innerHTML = span.innerHTML.replace("G+I ROJO S275", "S275");
+
+              // Revertir texto del portapapeles
+              const newClipboardText = `VIGA UPN ${selectedValue} mm a ${largo} m ST . S275`;
+              copyBtn.setAttribute("data-clipboard-text", newClipboardText);
+            }
+          });
+        });
     </script>
 
     <style>
@@ -700,6 +786,24 @@
         height: calc(1.5em + 0.5rem + 2px);
         color: #6c2cf5;
         font-weight: bold;
+      }
+
+      /* Estilos para el switch */
+      .form-check-input {
+        width: 3em;
+        height: 1.5em;
+        cursor: pointer;
+        margin-right: 0.8em;
+      }
+
+      .form-check-input:checked {
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+
+      .form-check-label {
+        cursor: pointer;
+        font-size: 1.1em;
       }
     </style>
     <!-- Footer container -->
