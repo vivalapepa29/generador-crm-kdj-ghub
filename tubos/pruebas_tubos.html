@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busqueda CRM - HMA - KDJ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+  <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/estilos/styles.css" /></head>
+
+<body class="bg-light p-3" style="margin-bottom: 100px">
+
+  <!-- Menú de navegación -->
+  <div id="menu-container"></div>
+
+  <!-- Inputs para precio, descuento y resultado -->
+<div class="row justify-content-center mt-4">
+  <div class="col-3 col-md-3 mb-3">
+    <input type="number" class="form-control" id="precio" placeholder="Precio" oninput="calcularResultado()" />
+  </div>
+  <div class="col-3 col-md-3 mb-3">
+    <input type="number" class="form-control" id="descuento" placeholder="Dto." oninput="calcularResultado()" />
+  </div>
+  <div class="col-5 col-md-3 mb-3 d-flex align-items-center">
+    <input type="text" class="form-control" id="resultado" placeholder="Resultado" readonly />
+    <button class="btn btn-dark btn-sm ms-2" onclick="resetInputs()">Reset</button>
+  </div>
+</div>
+
+<!-- JavaScript para calcular el resultado y limpiar inputs -->
+<script>
+function calcularResultado() {
+  const precio = parseFloat(document.getElementById("precio").value) || 0;
+  const descuento = parseFloat(document.getElementById("descuento").value) || 0;
+  const resultado = precio - (precio * (descuento / 100));
+  document.getElementById("resultado").value = resultado.toFixed(2);
+}
+
+function resetInputs() {
+  document.getElementById("precio").value = '';
+  document.getElementById("descuento").value = '';
+  document.getElementById("resultado").value = '';
+  document.getElementById("precio").focus(); // Colocar el cursor en el input de "precio"
+}
+</script>
+
+<!-- Botón para ir a 12m -->
+<div class="container w-100 mx-auto text-center mt-5" style="max-width: 700px;">
+  <a href="/tubos/tubo_12_auto_v2.html" class="btn btn-outline-primary">Ir a 12m</a>
+</div>
+
+<!-- tabla 6mt editable -->
+  <div class="container w-100 mx-auto" style="max-width: 700px;">
+    <h1 class="mb-4 pt-3 text-center">Tubos de <span style="color:#6c2cf5">6mts</span></h1>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">REDONDO</th>
+            <th scope="col">CUADRADO</th>
+            <th scope="col">RECTANGULAR</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">NG</td>
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select-redondo" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="45">45</option>
+                    <option value="48">48</option>
+                    <option value="50" selected>50</option>
+                    <option value="54">54</option>
+                    <option value="55">55</option>
+                    <option value="57">57</option>
+                    <option value="60">60</option>
+                    <option value="63">63</option>
+                    <option value="65">65</option>
+                    <option value="70">70</option>
+                    <option value="76">76</option>
+                    <option value="80">80</option>
+                    <option value="83">83</option>
+                    <option value="89">89</option>
+                    <option value="90">90</option>
+                    <option value="95">95</option>
+                    <option value="100">100</option>
+                    <option value="101.6">101,6</option>
+                    <option value="108">108</option>
+                    <option value="113">113</option>
+                    <option value="114.3">114,3</option>
+                    <option value="120">120</option>
+                    <option value="125">125</option>
+                    <option value="127">127</option>
+                    <option value="133">133</option>
+                    <option value="139.7">139,7</option>
+                    <option value="152">152</option>
+                    <option value="152.4">152,4</option>
+                    <option value="159">159</option>
+                    <option value="168.3">168,3</option>
+                    <option value="177.8">177,8</option>
+                    <option value="193.7">193,7</option>
+                    <option value="200">200</option>
+                    <option value="219.1">219,1</option>
+                    <option value="244.5">244,5</option>
+                    <option value="273">273</option>
+                    <option value="323.9">323,9</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select-redondo" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1.5">1,5</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO REDONDO NG 50x2 mm a 6 m ST">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="60" selected>60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100">100</option>
+                    <option value="110">110</option>
+                    <option value="120">120</option>
+                    <option value="125">125</option>
+                    <option value="130">130</option>
+                    <option value="140">140</option>
+                    <option value="150">150</option>
+                    <option value="160">160</option>
+                    <option value="175">175</option>
+                    <option value="180">180</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="260">260</option>
+                    <option value="300">300</option>
+                    <option value="350">350</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1">1</option>
+                    <option value="1.5">1,5</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="12.5">12,5</option>
+                    <option value="14.2">14,2</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO CUAD. NG 60x60x3 mm a 6 m ST">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x2</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. NG 60x40x2 mm a 6 m ST">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">GV</td>
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select-redondo-gv" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="45">45</option>
+                    <option value="48">48</option>
+                    <option value="50" selected>50</option>
+                    <option value="54">54</option>
+                    <option value="55">55</option>
+                    <option value="57">57</option>
+                    <option value="60">60</option>
+                    <option value="63">63</option>
+                    <option value="65">65</option>
+                    <option value="70">70</option>
+                    <option value="73">73</option>
+                    <option value="76">76</option>
+                    <option value="80">80</option>
+                    <option value="83">83</option>
+                    <option value="89">89</option>
+                    <option value="100">100</option>
+                    <option value="159">159</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select-redondo-gv" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1.5" selected>1,5</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO REDONDO GV 50x1,5 mm a 6 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+
+        
+            
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50" selected>50</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                    <option value="120">120</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1">1</option>
+                    <option value="1.5" selected>1,5</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO CUAD. GV 50x50x1,5 mm a 6 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+
+
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x2</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. GV 60x40x2 mm a 6 m GV  DX51">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            
+          </tr>
+
+          <tr>
+            
+            <td style="background-color: #6e2bf53a; color: black; font-weight: bold;">DC</td>
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select-redondo-dc" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14" selected>14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="45">45</option>
+                    <option value="48">48</option>
+                    <option value="50">50</option>
+                    <option value="54">54</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                    <option value="65">65</option>
+                    <option value="70">70</option>
+                    <option value="76">76</option>
+                    <option value="80">80</option>
+                    <option value="89">89</option>
+                    <option value="100">100</option>
+                    <option value="101.6">101,6</option>
+                    <option value="108">108</option>
+                    <option value="120">120</option>
+                    <option value="125">125</option>
+                    <option value="127">127</option>
+                    <option value="159">159</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select-redondo-dc" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1.5" selected>1,5</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO REDONDO DC 14x1,5 mm a 6 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+
+            <td>
+              <div class="copy-container">
+                <div class="d-flex flex-column">
+                  <select class="form-select form-select-sm mb-1 dimension-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50" selected>50</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+                  <select class="form-select form-select-sm espesor-select" style="color:#6c2cf5; font-weight: bold;">
+                    <option value="1.5" selected>1,5</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-primary btn-sm copy-btn mt-1" data-clipboard-text="TUBO CUAD. DC 50x50x1,5 mm a 6 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            
+            <td>
+              <div class="copy-container">
+                <span contenteditable="true" class="editable" style="color:#6c2cf5">60x40x1,5</span>
+                <button class="btn btn-outline-primary btn-sm copy-btn" data-clipboard-text="TUBO RECT. DC 60x40x1,5 mm a 6 m DC . E220">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+            </td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+  </div>
+
+
+
+
+    <!-- Notificación de copia -->
+    <div id="copy-notification" class="alert alert-info copied" role="alert">
+      ¡Elemento copiado!
+    </div>
+
+  <script>
+    fetch('/menu/menu.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('menu-container').innerHTML = data;
+          });
+    // Inicializar Clipboard.js para los botones de copiar
+    var clipboard = new ClipboardJS('.copy-btn', {
+      text: function(trigger) {
+        return trigger.getAttribute('data-clipboard-text');
+      }
+    });
+
+    // Mostrar notificación de copia
+    clipboard.on('success', function(e) {
+      var notification = document.getElementById('copy-notification');
+      notification.style.display = 'block';
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 2000); // Ocultar después de 2 segundos
+      e.clearSelection();
+    });
+
+    // Selección automática de texto al hacer clic en contenido editable
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('focus', function() {
+        var range = document.createRange();
+        var selection = window.getSelection();
+        range.selectNodeContents(this);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      });
+    });
+
+    // Actualización dinámica del texto editable
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('input', function() {
+        // Obtener el nuevo valor del texto editable
+        var newText = this.innerText.trim()
+          .toLowerCase()
+          .replace(/\./g, ',')    // Reemplazar puntos por comas
+          .replace(/\*/g, 'x')    // Reemplazar asteriscos por x
+          .replace(/X/g, 'x');    // Reemplazar X mayúscula por x
+        
+        // Actualizar el texto visible con la transformación
+        this.innerText = newText;
+        
+        // Buscar el botón correspondiente en el mismo contenedor
+        var parentButton = this.closest('.copy-container').querySelector('.copy-btn');
+        
+        // Obtener el texto del botón antes de modificarlo
+        var originalText = parentButton.getAttribute('data-clipboard-text');
+        
+        // Identificar si es redondo, cuadrado o rectangular
+        var parts = originalText.split(' ');
+        var descriptionPart = parts[1]; // REDONDO, CUAD., RECT.
+        var typePart = parts[2]; // NG o GV
+        
+        // Si es cuadrado, convertir 60x3 o 60X3 a 60x60x3
+        if (descriptionPart === 'CUAD.') {
+          var dimensions = newText.split('x');
+          if (dimensions.length === 2) {
+            newText = dimensions[0] + 'x' + dimensions[0] + 'x' + dimensions[1];
+          }
+        }
+        
+        // Convertir el texto final a mayúsculas para mantener el formato
+        newText = newText.toUpperCase();
+        
+        var updatedText = `TUBO ${descriptionPart} ${typePart} ${newText} mm a 6 m ${originalText.split(' a 6 m ')[1]}`;
+        
+        // Actualizar el valor del botón de copiar con el nuevo texto
+        parentButton.setAttribute('data-clipboard-text', updatedText);
+        
+        // Colocar el cursor al final del texto
+        var range = document.createRange();
+        var sel = window.getSelection();
+        range.selectNodeContents(this);
+        range.collapse(false);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+    });
+
+    // Prevenir el salto de línea al presionar Enter y confirmar edición
+    document.querySelectorAll('[contenteditable]').forEach(function(element) {
+      element.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault(); // Prevenir salto de línea
+          this.blur(); // Confirma la edición al perder el foco
+        }
+      });
+    });
+
+    document.querySelectorAll('.dimension-select, .espesor-select').forEach(function(select) {
+      select.addEventListener('change', function() {
+        const container = this.closest('.copy-container');
+        const row = container.closest('tr');
+        const tipoTubo = row.querySelector('td:first-child').textContent.trim(); // Obtiene NG, GV o DC
+        const dimensionValue = container.querySelector('.dimension-select').value;
+        const espesorValue = container.querySelector('.espesor-select').value
+          .toString()
+          .replace('.', ',');
+        const copyBtn = container.querySelector('.copy-btn');
+        
+        // Definir el sufijo según el tipo de tubo
+        let sufijo;
+        if (tipoTubo === 'GV') {
+          sufijo = 'GV  DX51';
+        } else if (tipoTubo === 'DC') {
+          sufijo = 'DC . E220';
+        } else {
+          sufijo = 'ST';
+        }
+        
+        // Actualizar el texto del botón de copiar
+        const newText = `TUBO CUAD. ${tipoTubo} ${dimensionValue}x${dimensionValue}x${espesorValue} mm a 6 m ${sufijo}`;
+        copyBtn.setAttribute('data-clipboard-text', newText);
+      });
+    });
+
+    document.querySelectorAll('.dimension-select-redondo, .espesor-select-redondo').forEach(function(select) {
+      select.addEventListener('change', function() {
+        const container = this.closest('.copy-container');
+        const dimensionValue = container.querySelector('.dimension-select-redondo').value;
+        const espesorValue = container.querySelector('.espesor-select-redondo').value
+          .toString()
+          .replace('.', ',');
+        const copyBtn = container.querySelector('.copy-btn');
+        
+        const newText = `TUBO REDONDO NG ${dimensionValue}x${espesorValue} mm a 6 m ST`;
+        copyBtn.setAttribute('data-clipboard-text', newText);
+      });
+    });
+
+    document.querySelectorAll('.dimension-select-redondo-gv, .espesor-select-redondo-gv').forEach(function(select) {
+      select.addEventListener('change', function() {
+        const container = this.closest('.copy-container');
+        const dimensionValue = container.querySelector('.dimension-select-redondo-gv').value;
+        const espesorValue = container.querySelector('.espesor-select-redondo-gv').value
+          .toString()
+          .replace('.', ',');
+        const copyBtn = container.querySelector('.copy-btn');
+        
+        const newText = `TUBO REDONDO GV ${dimensionValue}x${espesorValue} mm a 6 m GV  DX51`;
+        copyBtn.setAttribute('data-clipboard-text', newText);
+      });
+    });
+
+    document.querySelectorAll('.dimension-select-redondo-dc, .espesor-select-redondo-dc').forEach(function(select) {
+      select.addEventListener('change', function() {
+        const container = this.closest('.copy-container');
+        const dimensionValue = container.querySelector('.dimension-select-redondo-dc').value;
+        const espesorValue = container.querySelector('.espesor-select-redondo-dc').value
+          .toString()
+          .replace('.', ',');
+        const copyBtn = container.querySelector('.copy-btn');
+        
+        const newText = `TUBO REDONDO DC ${dimensionValue}x${espesorValue} mm a 6 m DC . E220`;
+        copyBtn.setAttribute('data-clipboard-text', newText);
+      });
+    });
+
+  </script>
+
+  
+
+<!-- Footer container -->
+    <div id="footer-container"></div>
+
+    <!-- Script para el footer -->
+    <script>
+      fetch("/footer/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = data;
+          const footer = tempDiv.querySelector("footer");
+          document.getElementById("footer-container").appendChild(footer);
+        })
+        .catch((error) => {
+          console.error("Error cargando el footer:", error);
+        });
+    </script>
+  </body>
+
+</html>
