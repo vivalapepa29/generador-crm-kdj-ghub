@@ -721,5 +721,24 @@
           console.error("Error cargando el footer:", error);
         });
     </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inicializar clipboard para cada botón individualmente
+        document.querySelectorAll(".copy-btn").forEach(function (btn) {
+          var clipboard = new ClipboardJS(btn);
+
+          clipboard.on("success", function (e) {
+            // Opcional: Feedback visual al usuario
+            const originalText = e.trigger.innerHTML;
+            e.trigger.innerHTML = '<i class="bi bi-check"></i>';
+            setTimeout(function () {
+              e.trigger.innerHTML = originalText;
+            }, 2000);
+            e.clearSelection();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
